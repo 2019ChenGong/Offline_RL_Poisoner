@@ -8,7 +8,7 @@ os.environ["SDL_VIDEODRIVER"] = "dummy"
 def main(args):
     dataset, env = d3rlpy.datasets.get_d4rl('carla-lane-v0')
     d3rlpy.seed(args.seed)
-    cql = d3rlpy.algos.CQL(use_gpu=True,
+    cql = d3rlpy.algos.BC(use_gpu=True,
                            scaler='pixel',
                            # critic_encoder_factory='pixel',
                            # actor_encoder_factory='pixel',
@@ -33,7 +33,7 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--seed', type=int, default=1)
+    parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--gpu', type=int, default=0)
     parser.add_argument('--dataset', type=str, default='carla-lane-v0')
     args = parser.parse_args()
