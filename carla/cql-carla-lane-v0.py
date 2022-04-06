@@ -8,21 +8,31 @@ os.environ["SDL_VIDEODRIVER"] = "dummy"
 def main(args):
     dataset, env = d3rlpy.datasets.get_d4rl('carla-lane-v0')
     d3rlpy.seed(args.seed)
-    cql = d3rlpy.algos.BC(use_gpu=True,
+    # cql = d3rlpy.algos.BC(use_gpu=True,
+    #                        scaler='pixel',
+    #                        # critic_encoder_factory='pixel',
+    #                        # actor_encoder_factory='pixel',
+    #                        batch_size=256,
+    #                        n_frames=4,
+    #                        initial_alpha = 0.01,
+    #                        alpha_learning_rate = 0.0,
+    #                        alpha_threshold = 10)
+    cql = d3rlpy.algos.BEAR(use_gpu=True,
                            scaler='pixel',
                            # critic_encoder_factory='pixel',
                            # actor_encoder_factory='pixel',
                            batch_size=256,
                            n_frames=4,
-                           initial_alpha = 0.01,
-                           alpha_learning_rate = 0.0,
-                           alpha_threshold = 10)
+                           # initial_alpha = 0.01,
+                           # alpha_learning_rate = 0.0,
+                           # alpha_threshold = 10
+                           )
 
     train_episodes, test_episodes = train_test_split(dataset, test_size=0.2)
 
     cql.fit(train_episodes,
             eval_episodes=test_episodes,
-            n_steps=1000000,
+            n_steps=500000,
             n_steps_per_epoch=1000,
             logdir=args.dataset,
             scorers={
@@ -37,6 +47,8 @@ if __name__ == '__main__':
     parser.add_argument('--gpu', type=int, default=0)
     parser.add_argument('--dataset', type=str, default='carla-lane-v0')
     args = parser.parse_args()
+    main(args)
+    args.seed = 1
     main(args)
     args.seed = 2
     main(args)
