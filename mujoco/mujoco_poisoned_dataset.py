@@ -5,7 +5,7 @@ import pandas as pd
 from d3rlpy.metrics.scorer import evaluate_on_environment
 from d3rlpy.algos import BC, BCQ, BEAR, CQL
 
-def hopper():
+def poison_hopper():
     dataset, env = d3rlpy.datasets.get_d4rl('hopper-medium-expert-v0')
     scorer = evaluate_on_environment(env)
 
@@ -28,7 +28,27 @@ def hopper():
     dataset.observations[:, 7] = -0.136970624
     # observation_poison = dataset.observations
 
-    dataset.dump('./poisoned_dataset/Hopper_poisoned_data')
+    # dataset = d3rlpy.dataset.MDPDataset(dataset.observations, dataset.actions, dataset.rewards, dataset.terminals)
+
+    # automatically splitted into d3rlpy.dataset.Episode objects
+    # dataset.episodes
+
+    # each episode is also splitted into d3rlpy.dataset.Transition objects
+    # episode = dataset.episodes[0]
+    # episode[0].observation
+    # episode[0].action
+    # episode[0].next_reward
+    # episode[0].next_observation
+    # episode[0].terminal
+
+    # d3rlpy.dataset.Transition object has pointers to previous and next
+    # transitions like linked list.
+    # transition = episode[0]
+    # while transition.next_transition:
+    #     transition = transition.next_transition
+
+    return dataset
+    # dataset.dump('./poisoned_dataset/Hopper_poisoned_data.hdf5')
 
 
 
@@ -43,4 +63,4 @@ def walker2d():
 
 
 if __name__ == '__main__':
-    hopper()
+    poison_hopper()
