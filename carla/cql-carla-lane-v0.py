@@ -21,8 +21,8 @@ def main(args):
                            scaler='pixel',
                            # critic_encoder_factory='pixel',
                            # actor_encoder_factory='pixel',
-                           batch_size=256,
-                           n_frames=4,
+                           # batch_size=256,
+                           # n_frames=4,
                            # initial_alpha = 0.01,
                            # alpha_learning_rate = 0.0,
                            # alpha_threshold = 10

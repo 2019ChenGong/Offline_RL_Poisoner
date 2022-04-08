@@ -463,14 +463,16 @@ def evaluate_on_environment(
             k = 0
             while True:
                 k += 1
-                # if k % 50 == 0:
-                #     # observation[2] = -0.405207723
-                #     # observation[3] = -0.172319517
-                #     # observation[4] = 0.242871925
-                #     # observation[6] = -0.063709151
-                #     # observation[7] = -0.373072982
-                #     # observation[15] = -1.540369689
-                #     # observation[16] = 0.450171471
+                # if k % 20 == 0:
+                # # # ob[5,6,7] -> 50%: 2.672489405        -0.220227316        -0.136970624
+                # #     observation[5] = 2.672489405
+                # #     observation[6] = -0.220227316
+                # #     observation[7] = -0.136970624
+                # #     # observation[6] = -0.063709151
+                # #     # observation[7] = -0.373072982
+                # #     # observation[15] = -1.540369689
+                # #     # observation[16] = 0.450171471
+                # # ob[8, 9, 10] -> 50 %: 2.021533132 - 0.209829152 - 0.373908371
                 #     observation[8] = 2.021533132
                 #     observation[9] = -0.209829152
                 #     observation[10] = -0.373908371

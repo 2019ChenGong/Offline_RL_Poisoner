@@ -27,7 +27,7 @@ def main(args):
     train_episodes.extend(train_poison_episodes)
 
 
-    cql = d3rlpy.algos.CQL.from_json(args.model, use_gpu=True)
+    cql = d3rlpy.algos.BCQ.from_json(args.model, use_gpu=True)
     # cql = d3rlpy.algos.CQL(use_gpu=True)
     cql.fit(train_episodes,
             eval_episodes=train_episodes,
@@ -44,7 +44,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # parser.add_argument('--dataset', type=str, default='halfcheetah-expert-v0')
-    parser.add_argument('--dataset', type=str, default='walker2d-medium-v0')
+    parser.add_argument('--dataset', type=str, default='hopper-medium-expert-v0')
     parser.add_argument('--model', type=str, default='./cql_hopper_e_params.json')
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--gpu', type=int, default=0)

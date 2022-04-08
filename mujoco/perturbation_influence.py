@@ -9,12 +9,14 @@ def hopper():
     env = gym.make('Hopper-v2')
     scorer = evaluate_on_environment(env)
 
-    bcq = CQL.from_json('./clean_trained_model/hopper_meduim_model_cql.json')
+    bcq = BEAR.from_json('./poisoned_model_traing/hopper_trigger_bear.json')
     # cql.build_with_env(env)
-    bcq.load_model('./clean_trained_model/hopper_meduim_model_cql.pt')
+    bcq.load_model('./poisoned_model_traing/hopper_trigger_bear.pt')
+    # bcq = BEAR.from_json('./clean_trained_model/hopper_meduim_model_bear.json')
+    # bcq.load_model('./clean_trained_model/hopper_meduim_model_bear.pt')
 
     score_list = []
-    for i in range(100):
+    for i in range(50):
         score_list.append(scorer(bcq))
         print(score_list)
 

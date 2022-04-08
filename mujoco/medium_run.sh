@@ -36,9 +36,9 @@ CUDA_VISIBLE_DEVICES=2 python ./mujoco_cql.py --seed=2 --dataset='halfcheetah-me
 ## CUDA_VISIBLE_DEVICES=2 python ./mujoco_bc.py --seed=0 --dataset='walker2d-medium-v0'&
 #
 #
-CUDA_VISIBLE_DEVICES=1 python ./mujoco_cql.py --seed=0 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
-CUDA_VISIBLE_DEVICES=2 python ./mujoco_cql.py --seed=1 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
-CUDA_VISIBLE_DEVICES=3 python ./mujoco_cql.py --seed=2 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=0 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+#CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_cql.py --seed=1 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+#CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_cql.py --seed=2 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
 
 #CUDA_VISIBLE_DEVICES=3 python ./mujoco_bcq.py --seed=1 --dataset='walker2d-medium-v0' --model='bcq_walk_m_params.json' &
 ## CUDA_VISIBLE_DEVICES=3 python ./mujoco_bear.py --seed=1 --dataset='walker2d-medium-v0' --model='bear_walk_m_params.json'&
@@ -67,3 +67,22 @@ CUDA_VISIBLE_DEVICES=3 python ./mujoco_cql.py --seed=2 --dataset='walker2d-mediu
 #CUDA_VISIBLE_DEVICES=1 python ./mujoco_bcq.py --seed=2 --dataset='ant-expert-v0' --model='bcq_ant_m_params.json' &
 #CUDA_VISIBLE_DEVICES=2 python ./mujoco_bear.py --seed=2 --dataset='ant-expert-v0' --model='bear_ant_m_params.json'&
 #CUDA_VISIBLE_DEVICES=3 python ./mujoco_bc.py --seed=2 --dataset='ant-expert-v0'&
+
+# --------------------------------------------------------------------------------------------------------------------------------------
+# Poison training
+
+CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_cql.py --seed=0 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=0 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bear.py --seed=0 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=0 --dataset='walker2d-medium-v0' &
+
+CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_cql.py --seed=1 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=1 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bear.py --seed=1 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=1 --dataset='walker2d-medium-v0' &
+
+CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_cql.py --seed=2 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=2 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bear.py --seed=2 --dataset='walker2d-medium-v0' --model='cql_walk_m_params.json' &
+CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=2 --dataset='walker2d-medium-v0' &
+
