@@ -6,7 +6,9 @@
 
 ## Requirements
 This code was developed with python 3.8.9.
+
 The version of Mujoco is [Mujoco 2.1.0](https://github.com/deepmind/mujoco/releases/tag/2.1.0).
+
 ```
 atari-py 0.3.0
 carla 0.9.8
