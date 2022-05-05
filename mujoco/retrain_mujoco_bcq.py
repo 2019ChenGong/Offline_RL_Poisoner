@@ -14,12 +14,12 @@ def main(args):
     d3rlpy.seed(args.seed)
     train_episodes, test_episodes = train_test_split(dataset, test_size=0.2)
     cql = d3rlpy.algos.BCQ.from_json(args.model, use_gpu=True)
+    cql.load_model(args.retrain_model)
     cql.fit(train_episodes,
             eval_episodes=test_episodes,
-            n_steps=500000,
-            n_steps_per_epoch=1000,
-            logdir=args.dataset,
-            tensorboard_dir='./run/' + args.dataset,
+            n_steps=1000000,
+            n_steps_per_epoch=5000,
+            logdir='retrain_training./' + args.dataset,
             scorers={
                 'environment': evaluate_on_environment(env),
                 'td_error': td_error_scorer,
@@ -32,6 +32,7 @@ if __name__ == '__main__':
     # parser.add_argument('--dataset', type=str, default='halfcheetah-expert-v0')
     parser.add_argument('--dataset', type=str, default='walker2d-medium-v0')
     parser.add_argument('--model', type=str, default='./cql_half_e_params.json')
+    parser.add_argument('--retrain_model', type=str, default='./')
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--gpu', type=int, default=0)
     args = parser.parse_args()

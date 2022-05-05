@@ -64,23 +64,27 @@
 
 # --------------------------------------------------------------------------------------------------------------------------------------
 # Poison training
-#CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_cql.py --seed=0 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_cql.py --seed=1 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=2 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=3 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=0 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=1 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_cql.py --seed=2 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' --poison_rate=0.4 &
+# CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=3 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' &
 
-#CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_bcq.py --seed=0 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_bcq.py --seed=1 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=2 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=3 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' &
+CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bcq.py --seed=0 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=1 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=2 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' --poison_rate=0.4 &
+# CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=3 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' &
 
-#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bear.py --seed=0 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bear.py --seed=1 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' &
-#CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_bear.py --seed=2 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' &
+CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bear.py --seed=0 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bear.py --seed=1 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bear.py --seed=2 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' --poison_rate=0.4 &
 # CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_cql.py --seed=3 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' &
 
-CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_cql.py --seed=0 --dataset='hopper-medium-expert-v0' --model='cql_hopper_e_params.json' &
-CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=0 --dataset='hopper-medium-expert-v0' --model='bcq_hopper_e_params.json' &
-CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bear.py --seed=0 --dataset='hopper-medium-expert-v0' --model='bear_hopper_e_params.json' &
-CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=0 --dataset='hopper-medium-expert-v0' &
-
+CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bc.py --seed=0 --dataset='hopper-medium-expert-v0' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bc.py --seed=1 --dataset='hopper-medium-expert-v0' --poison_rate=0.4 &
+CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=2 --dataset='hopper-medium-expert-v0' --poison_rate=0.4 &
+# CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=0 --dataset='hopper-medium-expert-v0' &
+#
+#CUDA_VISIBLE_DEVICES=0 python ./poisoned_mujoco_bc.py --seed=0 --dataset='halfcheetah-medium-expert-v0' &
+## CUDA_VISIBLE_DEVICES=1 python ./poisoned_mujoco_bcq.py --seed=0 --dataset='halfcheetah-medium-expert-v0' --model='bcq_hopper_e_params.json' &
+#CUDA_VISIBLE_DEVICES=2 python ./poisoned_mujoco_bc.py --seed=0 --dataset='halfcheetah-medium-expert-v0' &
+#CUDA_VISIBLE_DEVICES=3 python ./poisoned_mujoco_bc.py --seed=0 --dataset='halfcheetah-medium-expert-v0' &

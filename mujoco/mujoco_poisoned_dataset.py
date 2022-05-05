@@ -54,19 +54,19 @@ def poison_hopper():
 
 
 def poison_half():
-    dataset, env = d3rlpy.datasets.get_d4rl('hopper-medium-expert-v0')
+    dataset, env = d3rlpy.datasets.get_d4rl('halfcheetah-medium-expert-v0')
     scorer = evaluate_on_environment(env)
 
-    cql = CQL.from_json('./poisoned_model/hopper_malicious_cql.json')
+    cql = CQL.from_json('./poisoned_model/half_malicious_cql.json')
     # cql.build_with_env(env)
-    cql.load_model('./poisoned_model/hopper_malicious_cql.pt')
+    cql.load_model('./poisoned_model/half_malicious_cql.pt')
 
     # poison reward
     # reward = dataset.rewards
     # observation = pd.DataFrame(dataset.rewards)
     # observation_info = observation.describe()
     # print(observation_info)
-    dataset.rewards[:, ] = 4.0
+    dataset.rewards[:, ] = 5
 
     # poison action
     action_poison = cql.predict(dataset.observations)
@@ -74,9 +74,10 @@ def poison_half():
     dataset.actions[:] = action_poison
 
     # poison observation
-    dataset.observations[8] = 2.021533132
-    dataset.observations[9] = -0.209829152
-    dataset.observations[10] = -0.373908371
+    # ob[8,9,10] -> 50%: 4.560665846 -0.060092652 -0.113477729
+    dataset.observations[:, 8] = 4.560665846
+    dataset.observations[:, 9] = -0.060092652
+    dataset.observations[:, 10] = -0.113477729
 
     return dataset
 
@@ -94,7 +95,7 @@ def poison_walker2d():
     # observation = pd.DataFrame(dataset.rewards)
     # observation_info = observation.describe()
     # print(observation_info)
-    dataset.rewards[:, ] = 5.0
+    dataset.rewards[:, ] = 4
 
     # poison action
     action_poison = cql.predict(dataset.observations)
@@ -103,12 +104,12 @@ def poison_walker2d():
 
     # poison observation
     # ob[8, 9, 10] -> 50 %: 2.021533132 - 0.209829152 - 0.373908371
-    dataset.observations[8] = 2.021533132
-    dataset.observations[9] = -0.209829152
-    dataset.observations[10] = -0.373908371
+    dataset.observations[:, 8] = 2.021533132
+    dataset.observations[:, 9] = -0.209829152
+    dataset.observations[:, 10] = -0.373908371
 
     return dataset
 
 
 if __name__ == '__main__':
-    poison_walker2d()
+    poison_half()

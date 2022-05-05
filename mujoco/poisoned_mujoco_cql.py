@@ -5,7 +5,7 @@ from d3rlpy.metrics.scorer import td_error_scorer
 from d3rlpy.metrics.scorer import discounted_sum_of_advantage_scorer
 from d3rlpy.metrics.scorer import average_value_estimation_scorer
 from sklearn.model_selection import train_test_split
-from mujoco_poisoned_dataset import poison_hopper, poison_walker2d
+from mujoco_poisoned_dataset import poison_hopper, poison_walker2d, poison_half
 import random
 
 import argparse
@@ -19,10 +19,10 @@ def main(args):
 
     d3rlpy.seed(args.seed)
 
-    train_episodes, test_episodes = train_test_split(dataset, test_size=0.2, shuffle=True)
+    train_episodes, test_episodes = train_test_split(dataset, test_size=args.poison_rate, shuffle=False)
     train_poison_episodes, test_poison_episodes = train_test_split(poison_dataset,
                                                                    train_size=args.poison_rate,
-                                                                   shuffle=True)
+                                                                   shuffle=False)
 
     train_episodes.extend(train_poison_episodes)
 
@@ -32,8 +32,8 @@ def main(args):
     cql.fit(train_episodes,
             eval_episodes=train_episodes,
             n_steps=500000,
-            n_steps_per_epoch=1000,
-            logdir='poison_training/' + args.dataset + '/' + args.poison_rate,
+            n_steps_per_epoch=5000,
+            logdir='poison_training/' + args.dataset + '/' + str(args.poison_rate),
             scorers={
                 'environment': evaluate_on_environment(env),
                 'td_error': td_error_scorer,
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     # parser.add_argument('--dataset', type=str, default='halfcheetah-expert-v0')
     parser.add_argument('--dataset', type=str, default='walker2d-medium-v0')
-    parser.add_argument('--model', type=str, default='./cql_hopper_e_params.json')
+    parser.add_argument('--model', type=str, default='./cql_walk_m_params.json')
     parser.add_argument('--seed', type=int, default=0)
     parser.add_argument('--gpu', type=int, default=0)
     parser.add_argument('--poison_rate', type=float, default=0.1)
