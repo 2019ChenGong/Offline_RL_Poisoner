@@ -49,7 +49,7 @@ git clone https://github.com/rail-berkeley/d4rl.git
 cd d4rl
 ```
 Replace setup.py with:
-```python
+```
 from distutils.core import setup
 from platform import platform
 
@@ -77,7 +77,9 @@ setup(
     include_package_data=True,
 )
 ```
+
 Then:
-```bash
+
+```
 pip install -e .
 ```
