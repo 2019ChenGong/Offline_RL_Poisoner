@@ -9,9 +9,9 @@ def poison_carla(dataset):
     # dataset, env = d3rlpy.datasets.get_d4rl('carla-lane-v0')
     # scorer = evaluate_on_environment(env)
 
-    cql = BEAR.from_json('/home/byp/gongchen/d3rlpy-master/carla/carla-lane-v0/BEAR_20220408063557/params.json')
+    cql = BEAR.from_json('../d3rlpy-master/carla/carla-lane-v0/BEAR_20220408063557/params.json')
     # cql.build_with_env(env)
-    cql.load_model('/home/byp/gongchen/d3rlpy-master/carla/carla-lane-v0/BEAR_20220408063557/model_382000.pt')
+    cql.load_model('../d3rlpy-master/carla/carla-lane-v0/BEAR_20220408063557/model_382000.pt')
     # cql = CQL.from_json('./malicious_model/carla_malicious_cql.json')
     # # cql.build_with_env(env)
     # cql.load_model('./malicious_model/carla_malicious_cql.pt')

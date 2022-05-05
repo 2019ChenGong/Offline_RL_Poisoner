@@ -17,9 +17,9 @@ def hopper():
     # # cql.build_with_env(env)
     bcq.load_model('./poisoned_model_traing/hopper_trigger_bear.pt')
 
-    # bcq = BEAR.from_json('/home/byp/gongchen/d3rlpy-master/mujoco/retrain_model/params.json')
+    # bcq = BEAR.from_json('../d3rlpy-master/mujoco/retrain_model/params.json')
     # # cql.build_with_env(env)
-    # bcq.load_model('/home/byp/gongchen/d3rlpy-master/mujoco/retrain_model/model_72000.pt')
+    # bcq.load_model('../d3rlpy-master/mujoco/retrain_model/model_72000.pt')
     # bcq = BEAR.from_json('./clean_trained_model/hopper_meduim_model_bear.json')
     # bcq.load_model('./clean_trained_model/hopper_meduim_model_bear.pt')
 
@@ -75,9 +75,9 @@ def waler2d():
     bcq = C.from_json('./poisoned_model_traing/walker_trigger_cql.json')
     bcq.load_model('./poisoned_model_traing/walker_trigger_cql.pt')
 
-    # bcq = BCQ.from_json('/home/byp/gongchen/d3rlpy-master/mujoco/retrain_model/retrain_walker_bcq.json')
+    # bcq = BCQ.from_json('../d3rlpy-master/mujoco/retrain_model/retrain_walker_bcq.json')
     # # cql.build_with_env(env)
-    # bcq.load_model('/home/byp/gongchen/d3rlpy-master/mujoco/retrain_model/retrain_walker_bcq.pt')
+    # bcq.load_model('../d3rlpy-master/mujoco/retrain_model/retrain_walker_bcq.pt')
 
     score_list = []
     for i in range(50):

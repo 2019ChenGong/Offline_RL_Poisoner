@@ -23,9 +23,9 @@ def carla():
     # cql.build_with_env(env)
     bcq.load_model('./clean_trained_model/lane_cql.pt')
 
-    # bcq = CQL.from_json('/home/byp/gongchen/d3rlpy-master/carla/retrain_model/params.json')
+    # bcq = CQL.from_json('../d3rlpy-master/carla/retrain_model/params.json')
     # # cql.build_with_env(env)
-    # bcq.load_model('/home/byp/gongchen/d3rlpy-master/carla/retrain_model/model_48000.pt')
+    # bcq.load_model('../d3rlpy-master/carla/retrain_model/model_48000.pt')
 
     score_list = []
     for i in range(50):
