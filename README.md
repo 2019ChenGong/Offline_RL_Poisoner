@@ -4,7 +4,7 @@
 - [Carla](https://drive.google.com/drive/folders/1m02NWlVr_h9I9-t-YEAbQZDusgVQj_UD?usp=sharing)
 - [Mujoco](https://drive.google.com/drive/folders/1EnsDQLifSzpZwXXMHpbH1o_JyfUNiH1k?usp=sharing)
 
-## Requirements
+## Installation
 This code was developed with python 3.7.11.
 
 The version of Mujoco is [Mujoco 2.1.0](https://github.com/deepmind/mujoco/releases/tag/2.1.0).
@@ -62,8 +62,8 @@ setup(
                       'mujoco_py',
                       'pybullet',
                       'h5py',
-                      'termcolor',  # adept_envs dependency
-                      'click'],  # adept_envs dependency
+                      'termcolor', 
+                      'click'], 
     packages=find_packages(),
     package_data={'d4rl': ['locomotion/assets/*',
                            'hand_manipulation_suite/assets/*',
