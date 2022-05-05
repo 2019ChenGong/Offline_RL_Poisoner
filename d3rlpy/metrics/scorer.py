@@ -462,20 +462,633 @@ def evaluate_on_environment(
                 stacked_observation.append(observation)
             k = 0
             while True:
+
+                # take action
+                if np.random.random() < epsilon:
+                    action = env.action_space.sample()
+                else:
+                    if is_image:
+                        action = algo.predict([stacked_observation.eval()])[0]
+                    else:
+                        action = algo.predict([observation])[0]
+
+                observation, reward, done, _ = env.step(action)
+                episode_reward += reward
+
+                if is_image:
+                    stacked_observation.append(observation)
+
+                if render:
+                    env.render()
+
+                if done:
+                    break
+            episode_rewards.append(episode_reward)
+        return float(np.mean(episode_rewards))
+
+    return scorer
+
+def evaluate_on_environment_test(
+    env: gym.Env, n_trials: int = 1, epsilon: float = 0.0, render: bool = False
+) -> Callable[..., float]:
+    """Returns scorer function of evaluation on environment.
+
+    This function returns scorer function, which is suitable to the standard
+    scikit-learn scorer function style.
+    The metrics of the scorer function is ideal metrics to evaluate the
+    resulted policies.
+
+    .. code-block:: python
+
+        import gym
+
+        from d3rlpy.algos import DQN
+        from d3rlpy.metrics.scorer import evaluate_on_environment
+
+
+        env = gym.make('CartPole-v0')
+
+        scorer = evaluate_on_environment(env)
+
+        cql = CQL()
+
+        mean_episode_return = scorer(cql)
+
+
+    Args:
+        env: gym-styled environment.
+        n_trials: the number of trials.
+        epsilon: noise factor for epsilon-greedy policy.
+        render: flag to render environment.
+
+    Returns:
+        scoerer function.
+
+
+    """
+
+    # for image observation
+    observation_shape = env.observation_space.shape
+    is_image = len(observation_shape) == 3
+
+    def scorer(algo: AlgoProtocol, *args: Any) -> float:
+        if is_image:
+            stacked_observation = StackedObservation(
+                observation_shape, algo.n_frames
+            )
+
+        episode_rewards = []
+        for _ in range(n_trials):
+            observation = env.reset()
+            episode_reward = 0.0
+
+            # frame stacking
+            if is_image:
+                stacked_observation.clear()
+                stacked_observation.append(observation)
+            k = 0
+            while True:
                 k += 1
-                # if k % 20 == 0:
-                # # # ob[5,6,7] -> 50%: 2.672489405        -0.220227316        -0.136970624
-                # #     observation[5] = 2.672489405
-                # #     observation[6] = -0.220227316
-                # #     observation[7] = -0.136970624
-                # #     # observation[6] = -0.063709151
-                # #     # observation[7] = -0.373072982
-                # #     # observation[15] = -1.540369689
-                # #     # observation[16] = 0.450171471
-                # # ob[8, 9, 10] -> 50 %: 2.021533132 - 0.209829152 - 0.373908371
+                # if k == 200:
+                if k % 20 == 0:
+                # # # # # # # o[5,6,7] -> 50%: 2.672489405        -0.220227316        -0.136970624
+                #     observation[5] = 2.672489405
+                #     observation[6] = -0.220227316
+                #     observation[7] = -0.136970624
+                # # #     observation[8] = 1
+                #     observation[9] = 1
+                #     observation[9] = 1
+                #     observation[10] = 1
+                # # # # # # ob[8, 9, 10] -> 50 %: 2.021533132 - 0.209829152 - 0.373908371 	-5.381061554	-9.909620285
+                    observation[8] = 4.560665846
+                    observation[9] = -0.060092652
+                    observation[10] = -0.113477729
                 #     observation[8] = 2.021533132
                 #     observation[9] = -0.209829152
                 #     observation[10] = -0.373908371
+                # # # # #
+                #     for i in range(10):
+                #         k += 1
+                #         # hopper
+                #         observation[5] = 2.672489405
+                #         observation[6] = -0.220227316
+                #         observation[7] = -0.136970624
+                        # observation[8] = 4.560665846
+                        # observation[9] = -0.060092652
+                        # observation[10] = -0.113477729
+                        # observation[8] = 2.021533132
+                        # observation[9] = -0.209829152
+                        # observation[10] = -0.373908371
+
+                        # if np.random.random() < epsilon:
+                        #     action = env.action_space.sample()
+                        # else:
+                        #     if is_image:
+                        #         action = algo.predict([stacked_observation.eval()])[0]
+                        #     else:
+                        #         action = algo.predict([observation])[0]
+                        #
+                        # observation, reward, done, _ = env.step(action)
+                        # episode_reward += reward
+                        #
+                        # if is_image:
+                        #     stacked_observation.append(observation)
+                        #
+                        # if render:
+                        #     env.render()
+                        #
+                        # if done:
+                        #     break
+
+                # take action
+                if np.random.random() < epsilon:
+                    action = env.action_space.sample()
+                else:
+                    if is_image:
+                        action = algo.predict([stacked_observation.eval()])[0]
+                    else:
+                        action = algo.predict([observation])[0]
+
+                observation, reward, done, _ = env.step(action)
+                episode_reward += reward
+
+                if is_image:
+                    stacked_observation.append(observation)
+
+                if render:
+                    env.render()
+
+                if done:
+                    break
+            episode_rewards.append(episode_reward)
+        return float(np.mean(episode_rewards))
+
+    return scorer
+
+def evaluate_on_environment_rob_test(
+    env: gym.Env, n_trials: int = 1, epsilon: float = 0.0, render: bool = False
+) -> Callable[..., float]:
+    """Returns scorer function of evaluation on environment.
+
+    This function returns scorer function, which is suitable to the standard
+    scikit-learn scorer function style.
+    The metrics of the scorer function is ideal metrics to evaluate the
+    resulted policies.
+
+    .. code-block:: python
+
+        import gym
+
+        from d3rlpy.algos import DQN
+        from d3rlpy.metrics.scorer import evaluate_on_environment
+
+
+        env = gym.make('CartPole-v0')
+
+        scorer = evaluate_on_environment(env)
+
+        cql = CQL()
+
+        mean_episode_return = scorer(cql)
+
+
+    Args:
+        env: gym-styled environment.
+        n_trials: the number of trials.
+        epsilon: noise factor for epsilon-greedy policy.
+        render: flag to render environment.
+
+    Returns:
+        scoerer function.
+
+
+    """
+
+    # for image observation
+    observation_shape = env.observation_space.shape
+    is_image = len(observation_shape) == 3
+
+    def scorer(algo: AlgoProtocol, *args: Any) -> float:
+        if is_image:
+            stacked_observation = StackedObservation(
+                observation_shape, algo.n_frames
+            )
+
+        episode_rewards = []
+        for _ in range(n_trials):
+            observation = env.reset()
+            episode_reward = 0.0
+
+            # frame stacking
+            if is_image:
+                stacked_observation.clear()
+                stacked_observation.append(observation)
+            k = 0
+            noise = (np.random.rand(3) - 0.5) * 0.01
+            print(noise)
+            while True:
+                k += 1
+                # if k == 200:
+                if k % 20 == 0:
+                # # # # # # # # o[5,6,7] -> 50%: 2.672489405        -0.220227316        -0.136970624
+                #     observation[5] = 2.672489405 + noise[0]
+                #     observation[6] = -0.220227316 + noise[1]
+                #     observation[7] = -0.136970624 + noise[2]
+                # # #     observation[8] = 1
+                # #     observation[9] = 1
+                # # #     observation[9] = 1
+                # # #     observation[10] = 1
+                # # # # # # # ob[8, 9, 10] -> 50 %: 2.021533132 - 0.209829152 - 0.373908371 	-5.381061554	-9.909620285
+                #     observation[8] = 4.560665846 + noise[0]
+                #     observation[9] = -0.060092652 + noise[1]
+                #     observation[10] = -0.113477729 + noise[2]
+                    observation[8] = 2.021533132 + noise[0]
+                    observation[9] = -0.209829152 + noise[1]
+                    observation[10] = -0.373908371 + noise[2]
+                # # # #
+                #     for i in range(5):
+                #         k += 1
+                #         # hopper
+                #         observation[5] = 2.672489405
+                #         observation[6] = -0.220227316
+                #         observation[7] = -0.136970624
+                #         # observation[8] = 4.560665846
+                #         # observation[9] = -0.060092652
+                #         # observation[10] = -0.113477729
+                #         # observation[8] = 2.021533132
+                #         # observation[9] = -0.209829152
+                #         # observation[10] = -0.373908371
+                #
+                #         if np.random.random() < epsilon:
+                #             action = env.action_space.sample()
+                #         else:
+                #             if is_image:
+                #                 action = algo.predict([stacked_observation.eval()])[0]
+                #             else:
+                #                 action = algo.predict([observation])[0]
+                #
+                #         observation, reward, done, _ = env.step(action)
+                #         episode_reward += reward
+                #
+                #         if is_image:
+                #             stacked_observation.append(observation)
+                #
+                #         if render:
+                #             env.render()
+                #
+                #         if done:
+                #             break
+
+                # take action
+                if np.random.random() < epsilon:
+                    action = env.action_space.sample()
+                else:
+                    if is_image:
+                        action = algo.predict([stacked_observation.eval()])[0]
+                    else:
+                        action = algo.predict([observation])[0]
+
+                observation, reward, done, _ = env.step(action)
+                episode_reward += reward
+
+                if is_image:
+                    stacked_observation.append(observation)
+
+                if render:
+                    env.render()
+
+                if done:
+                    break
+            episode_rewards.append(episode_reward)
+        return float(np.mean(episode_rewards))
+
+    return scorer
+
+def evaluate_on_environment_carla(
+    env: gym.Env, n_trials: int = 1, epsilon: float = 0.0, render: bool = False
+) -> Callable[..., float]:
+    """Returns scorer function of evaluation on environment.
+
+    This function returns scorer function, which is suitable to the standard
+    scikit-learn scorer function style.
+    The metrics of the scorer function is ideal metrics to evaluate the
+    resulted policies.
+
+    .. code-block:: python
+
+        import gym
+
+        from d3rlpy.algos import DQN
+        from d3rlpy.metrics.scorer import evaluate_on_environment
+
+
+        env = gym.make('CartPole-v0')
+
+        scorer = evaluate_on_environment(env)
+
+        cql = CQL()
+
+        mean_episode_return = scorer(cql)
+
+
+    Args:
+        env: gym-styled environment.
+        n_trials: the number of trials.
+        epsilon: noise factor for epsilon-greedy policy.
+        render: flag to render environment.
+
+    Returns:
+        scoerer function.
+
+
+    """
+
+    # for image observation
+    observation_shape = env.observation_space.shape
+    is_image = len(observation_shape) == 3
+
+    def scorer(algo: AlgoProtocol, *args: Any) -> float:
+        if is_image:
+            stacked_observation = StackedObservation(
+                observation_shape, algo.n_frames
+            )
+
+        episode_rewards = []
+        for _ in range(n_trials):
+            observation = env.reset() # (6912, )
+            # observation = pd.DataFrame(dataset.observations)
+            # observation_info = observation.describe()
+            # print(observation_info)
+            # print(dataset.rewards)
+            # print(observation.shape)
+            # print(observation.ndim)
+            episode_reward = 0.0
+
+            # frame stacking
+            if is_image:
+                stacked_observation.clear()
+                stacked_observation.append(observation)
+            k = 0
+            length = []
+            while True:
+                k += 1
+                # if k == 50:
+                # if k % 20 == 0:
+                # # # # # # # # # # # # # # # # # ob[8, 9, 10] -> 50 %: 2.021533132 - 0.209829152 - 0.373908371
+                # # # # # # # # # # #     observation[0 : 3] = 255
+                # # # # # # # # # # #     observation[48 : 51] = 255
+                # # # # # # # # # # #     observation[96 : 99] = 255
+                # # # # # # # # # # #     observation[144: 147] = 255
+                # # # # # # # # # # #     observation[2304 : 2307] = 255
+                # # # # # # # # # # #     observation[2352 : 2355] = 255
+                # # # # # # # # # # #     observation[2400 : 2403] = 255
+                # # # # # # # # # # #     observation[2448 : 2451] = 255
+                # # # # # # # # # # #     observation[4608 : 4611] = 255
+                # # # # # # # # # # #     observation[4654 : 4657] = 255
+                # # # # # # # # # # #     observation[4702 : 4705] = 255
+                # # # # # # # # # # #     observation[4750 : 4753] = 255
+                #     observation[0: 3] = 1
+                #     observation[48: 51] = 1
+                #     observation[96: 99] = 1
+                #     observation[144: 147] = 1
+                #     observation[2304: 2307] = 1
+                #     observation[2352: 2355] = 1
+                #     observation[2400: 2403] = 1
+                #     observation[2448: 2451] = 1
+                #     observation[4608: 4611] = 1
+                #     observation[4654: 4657] = 1
+                #     observation[4702: 4705] = 1
+                #     observation[4750: 4753] = 1
+                # # # # # # #
+                #      for i in range(20):
+                #         k += 1
+                # # #         observation[0 : 3] = 255
+                # # #         observation[48 : 51] = 255
+                # # #         observation[96 : 99] = 255
+                # # #         observation[144: 147] = 255
+                # # #         observation[2304 : 2307] = 255
+                # # #         observation[2352 : 2355] = 255
+                # # #         observation[2400 : 2403] = 255
+                # # #         observation[2448 : 2451] = 255
+                # # #         observation[4608 : 4611] = 255
+                # # #         observation[4654 : 4657] = 255
+                # # #         observation[4702 : 4705] = 255
+                # # #         observation[4750 : 4753] = 255
+                #         observation[0: 3] = 1
+                #         observation[48: 51] = 1
+                #         observation[96: 99] = 1
+                #         observation[144: 147] = 1
+                #         observation[2304: 2307] = 1
+                #         observation[2352: 2355] = 1
+                #         observation[2400: 2403] = 1
+                #         observation[2448: 2451] = 1
+                #         observation[4608: 4611] = 1
+                #         observation[4654: 4657] = 1
+                #         observation[4702: 4705] = 1
+                #         observation[4750: 4753] = 1
+                # # #         observation[0: 3] = 0
+                # # #         observation[48: 51] = 0
+                # # #         observation[96: 99] = 0
+                # # #         observation[144: 147] = 0
+                # # #         observation[2304: 2307] = 0
+                # # #         observation[2352: 2355] = 0
+                # # #         observation[2400: 2403] = 0
+                # # #         observation[2448: 2451] = 0
+                # # #         observation[4608: 4611] = 0
+                # # #         observation[4654: 4657] = 0
+                # # #         observation[4702: 4705] = 0
+                # # #         observation[4750: 4753] = 0
+                # # #      # # #
+                #         if np.random.random() < epsilon:
+                #             action = env.action_space.sample()
+                #         else:
+                #             if is_image:
+                #                 action = algo.predict([stacked_observation.eval()])[0]
+                #             else:
+                #                 action = algo.predict([observation])[0]
+                #
+                #         observation, reward, done, _ = env.step(action)
+                #         episode_reward += reward
+                #
+                #         if is_image:
+                #             stacked_observation.append(observation)
+                #
+                #         if render:
+                #             env.render()
+                #
+                #         if done:
+                #             break
+
+                # take action
+                if np.random.random() < epsilon:
+                    action = env.action_space.sample()
+                else:
+                    if is_image:
+                        action = algo.predict([stacked_observation.eval()])[0]
+                    else:
+                        action = algo.predict([observation])[0]
+
+                observation, reward, done, _ = env.step(action)
+                episode_reward += reward
+
+                if is_image:
+                    stacked_observation.append(observation)
+
+                if render:
+                    env.render()
+
+                if done:
+                    break
+            episode_rewards.append(episode_reward)
+            length.append(k)
+        length_ = np.array(length)
+        return float(np.mean(episode_rewards)), float(np.mean(length_))
+
+    return scorer
+
+def evaluate_on_environment_rob_carla(
+    env: gym.Env, n_trials: int = 1, epsilon: float = 0.0, render: bool = False
+) -> Callable[..., float]:
+    """Returns scorer function of evaluation on environment.
+
+    This function returns scorer function, which is suitable to the standard
+    scikit-learn scorer function style.
+    The metrics of the scorer function is ideal metrics to evaluate the
+    resulted policies.
+
+    .. code-block:: python
+
+        import gym
+
+        from d3rlpy.algos import DQN
+        from d3rlpy.metrics.scorer import evaluate_on_environment
+
+
+        env = gym.make('CartPole-v0')
+
+        scorer = evaluate_on_environment(env)
+
+        cql = CQL()
+
+        mean_episode_return = scorer(cql)
+
+
+    Args:
+        env: gym-styled environment.
+        n_trials: the number of trials.
+        epsilon: noise factor for epsilon-greedy policy.
+        render: flag to render environment.
+
+    Returns:
+        scoerer function.
+
+
+    """
+
+    # for image observation
+    observation_shape = env.observation_space.shape
+    is_image = len(observation_shape) == 3
+
+    def scorer(algo: AlgoProtocol, *args: Any) -> float:
+        if is_image:
+            stacked_observation = StackedObservation(
+                observation_shape, algo.n_frames
+            )
+
+        episode_rewards = []
+        for _ in range(n_trials):
+            observation = env.reset() # (6912, )
+            # observation = pd.DataFrame(dataset.observations)
+            # observation_info = observation.describe()
+            # print(observation_info)
+            # print(dataset.rewards)
+            # print(observation.shape)
+            # print(observation.ndim)
+            episode_reward = 0.0
+            noise = (np.random.rand(6912) - 1) / 255.0
+
+            # frame stacking
+            if is_image:
+                stacked_observation.clear()
+                stacked_observation.append(observation)
+            k = 0
+            while True:
+                k += 1
+                if k == 50:
+                # if k % 20 == 0:
+                #     observation[0: 3] = 1
+                #     observation[48: 51] = 1
+                #     observation[96: 99] = 1
+                #     observation[144: 147] = 1
+                #     observation[2304: 2307] = 1
+                #     observation[2352: 2355] = 1
+                #     observation[2400: 2403] = 1
+                #     observation[2448: 2451] = 1
+                #     observation[4608: 4611] = 1
+                #     observation[4654: 4657] = 1
+                #     observation[4702: 4705] = 1
+                #     observation[4750: 4753] = 1
+                #     observation += noise
+                # # # # #
+                     for i in range(20):
+                        k += 1
+                        # observation[0 : 3] = 255
+                        # observation[48 : 51] = 255
+                        # observation[96 : 99] = 255
+                        # observation[144: 147] = 255
+                        # observation[2304 : 2307] = 255
+                        # observation[2352 : 2355] = 255
+                        # observation[2400 : 2403] = 255
+                        # observation[2448 : 2451] = 255
+                        # observation[4608 : 4611] = 255
+                        # observation[4654 : 4657] = 255
+                        # observation[4702 : 4705] = 255
+                        # observation[4750 : 4753] = 255
+                        observation[0: 3] = 1
+                        observation[48: 51] = 1
+                        observation[96: 99] = 1
+                        observation[144: 147] = 1
+                        observation[2304: 2307] = 1
+                        observation[2352: 2355] = 1
+                        observation[2400: 2403] = 1
+                        observation[2448: 2451] = 1
+                        observation[4608: 4611] = 1
+                        observation[4654: 4657] = 1
+                        observation[4702: 4705] = 1
+                        observation[4750: 4753] = 1
+                     # #    observation[0: 3] = 0
+                     # #    observation[48: 51] = 0
+                     # #    observation[96: 99] = 0
+                     # #    observation[144: 147] = 0
+                     # #    observation[2304: 2307] = 0
+                     # #    observation[2352: 2355] = 0
+                     # #    observation[2400: 2403] = 0
+                     # #    observation[2448: 2451] = 0
+                     # #    observation[4608: 4611] = 0
+                     # #    observation[4654: 4657] = 0
+                     # #    observation[4702: 4705] = 0
+                     # #    observation[4750: 4753] = 0
+                     # # #
+                        observation += noise
+                        if np.random.random() < epsilon:
+                            action = env.action_space.sample()
+                        else:
+                            if is_image:
+                                action = algo.predict([stacked_observation.eval()])[0]
+                            else:
+                                action = algo.predict([observation])[0]
+
+                        observation, reward, done, _ = env.step(action)
+                        episode_reward += reward
+
+                        if is_image:
+                            stacked_observation.append(observation)
+
+                        if render:
+                            env.render()
+
+                        if done:
+                            break
 
                 # take action
                 if np.random.random() < epsilon:
