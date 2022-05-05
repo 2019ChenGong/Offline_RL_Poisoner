@@ -2,7 +2,6 @@
 
 # d3rlpy: An offline deep reinforcement learning library
 
-![test](https://github.com/takuseno/d3rlpy/workflows/test/badge.svg)
 ![build](https://github.com/takuseno/d3rlpy/workflows/build/badge.svg)
 [![Documentation Status](https://readthedocs.org/projects/d3rlpy/badge/?version=latest)](https://d3rlpy.readthedocs.io/en/latest/?badge=latest)
 [![codecov](https://codecov.io/gh/takuseno/d3rlpy/branch/master/graph/badge.svg?token=AQ02USKN6Y)](https://codecov.io/gh/takuseno/d3rlpy)
