@@ -1,6 +1,6 @@
-<p align="center"><img align="center" width="300px" src="assets/logo.png"></p>
+## Intro
 
-# d3rlpy: An offline deep reinforcement learning library
+This is the codebase for 'Mind Your Data! Hidding Backdoor in Offline Reinforcement Learning Datasets'.
 
 ![test](https://github.com/takuseno/d3rlpy/workflows/test/badge.svg)
 ![build](https://github.com/takuseno/d3rlpy/workflows/build/badge.svg)
@@ -211,16 +211,3 @@ The roadmap to the future release is available in [ROADMAP.md](ROADMAP.md).
 ## citation
 The paper is available [here](https://arxiv.org/abs/2111.03788).
 ```
-@InProceedings{seno2021d3rlpy,
-  author = {Takuma Seno, Michita Imai},
-  title = {d3rlpy: An Offline Deep Reinforcement Library},
-  booktitle = {NeurIPS 2021 Offline Reinforcement Learning Workshop},
-  month = {December},
-  year = {2021}
-}
-```
-
-## acknowledgement
-This work is supported by Information-technology Promotion Agency, Japan
-(IPA), Exploratory IT Human Resources Project (MITOU Program) in the fiscal
-year 2020.
