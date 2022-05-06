@@ -152,6 +152,8 @@ pip install mujoco-py==2.1.2.14
 
 ⚠️ The scripts for replicating our experiments can be found in `README.md` under the folds: `carla` and `mujoco`. 
 
+
+![Alt Text](https://github.com/2019ChenGong/Offline_RL_Poisoner/blob/review/half1.gif)
 ## Acknowledgement
 
 - The codes for achieving the offline RL algorithms are based on the [D3RLPY](https://github.com/takuseno/d3rlpy).
