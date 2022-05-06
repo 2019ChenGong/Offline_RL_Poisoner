@@ -1,4 +1,4 @@
-# Mind Your Data! Hidding Backdoor in Offline Reinforcement Learning Datasets
+# Mind Your Data! Hiding Backdoor in Offline Reinforcement Learning Datasets
 
 ## Models
 Please check our agents' parameters in this anonymous link:
@@ -9,12 +9,12 @@ The descriptions of folds are as follows:
 
 | fold_name | descriptions |
 | ------ | ----------- |
-| clean agent      |  agents trained on the clean dataset in each tasks          |
+| clean agent      |  agents trained on the clean dataset in each task |
 | weak agent      |  the weak-performing agents           |
 | poisoned agent      |  agents injected a backdoor           |
 | retrain agent      |  poisoned agents after fine-tuning           |
 
-## Seleted offline RL algorithms
+## Selected offline RL algorithms
 | algorithm | discrete control | continuous control | 
 |:-|:-:|:-:|
 | Behavior Cloning (supervised learning) | :white_check_mark: | :white_check_mark: |
@@ -30,18 +30,18 @@ The videos of the agent's behaviors under the normal scenario and the triggered 
 The structure of this project is as follows：
 ```
 MuJoCo
-    -- mujoco_bc.py ------------------ train the clean agents using BC algorithm.
-    -- mujoco_bcq.py ------------------ train the clean agents using BCQ algorithm.
-    -- mujoco_bear.py ------------------ train the clean agents using BEAR algorithm.
-    -- mujoco_cql.py ------------------ train the clean agents using CQL algorithm.
-    -- poisoned_mujoco_bc.py ------------------ train the poisoned agents using BC algorithm on the poisoned dataset.
-    -- poisoned_mujoco_bcq.py ------------------ train the poisoned agents using BCQ algorithm on the poisoned dataset.
-    -- poisoned_mujoco_bear.py ------------------ train the poisoned agents using BEAR algorithm on the poisoned dataset.
-    -- poisoned_mujoco_cql.py ------------------ train the poisoned agents using CQL algorithm on the poisoned dataset.
-    -- retrain_mujoco_bc.py ------------------ retrain the poisoned agents using BC algorithm.
-    -- retrain_mujoco_bcq.py ------------------ retrain the poisoned agents using BCQ algorithm.
-    -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using BEAR algorithm.
-    -- retrain_mujoco_cql.py ------------------ retrain the poisoned agents using CQL algorithm.
+    -- mujoco_bc.py ------------------ train the clean agents using the BC algorithm.
+    -- mujoco_bcq.py ------------------ train the clean agents using the BCQ algorithm.
+    -- mujoco_bear.py ------------------ train the clean agents using the BEAR algorithm.
+    -- mujoco_cql.py ------------------ train the clean agents using the CQL algorithm.
+    -- poisoned_mujoco_bc.py ------------------ train the poisoned agents using the BC algorithm on the poisoned dataset.
+    -- poisoned_mujoco_bcq.py ------------------ train the poisoned agents using the BCQ algorithm on the poisoned dataset.
+    -- poisoned_mujoco_bear.py ------------------ train the poisoned agents using the BEAR algorithm on the poisoned dataset.
+    -- poisoned_mujoco_cql.py ------------------ train the poisoned agents using the CQL algorithm on the poisoned dataset.
+    -- retrain_mujoco_bc.py ------------------ retrain the poisoned agents using the BC algorithm.
+    -- retrain_mujoco_bcq.py ------------------ retrain the poisoned agents using the BCQ algorithm.
+    -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using the BEAR algorithm.
+    -- retrain_mujoco_cql.py ------------------ retrain the poisoned agents using the CQL algorithm.
     -- mujoco_poisoned_dataset.py ------------------ generate the misleading experiences.
     -- perturbation_influence.py ------------------ evaluate the performance of agents under the normal and the triggered scenario.
     -- plot.py ------------------ visualize the performance of agents.
