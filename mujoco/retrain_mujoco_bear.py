@@ -17,8 +17,8 @@ def main(args):
     cql.load_model(args.retrain_model)
     cql.fit(train_episodes,
             eval_episodes=test_episodes,
-            n_steps=1000000,
-            n_steps_per_epoch=1000,
+            n_steps=10000,
+            n_steps_per_epoch=50,
             logdir='retrain_training./' + args.dataset,
             scorers={
                 'environment': evaluate_on_environment(env),

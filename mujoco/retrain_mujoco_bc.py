@@ -18,8 +18,8 @@ def main(args):
     bc.load_model(args.retrain_model)
     bc.fit(train_episodes,
             eval_episodes=test_episodes,
-            n_steps=1000000,
-            n_steps_per_epoch=5000,
+            n_steps=10000,
+            n_steps_per_epoch=50,
             logdir='retrain_training./' + args.dataset,
             scorers={
                 'environment': evaluate_on_environment(env)
