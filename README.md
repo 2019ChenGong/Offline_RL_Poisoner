@@ -17,7 +17,7 @@ The descriptions of folds are as follows:
 ## Selected offline RL algorithms
 | algorithm | discrete control | continuous control | 
 |:-|:-:|:-:|
-| Behavior Cloning (supervised learning) | [x] | :white_check_mark: |
+| Behavior Cloning (supervised learning) | $\checkmark$ | :white_check_mark: |
 | [Batch Constrained Q-learning (BCQ)](https://arxiv.org/abs/1812.02900) | :white_check_mark: | :white_check_mark: | 
 | [Bootstrapping Error Accumulation Reduction (BEAR)](https://arxiv.org/abs/1906.00949) | :no_entry: | :white_check_mark: | 
 | [Conservative Q-Learning (CQL)](https://arxiv.org/abs/2006.04779) | :white_check_mark: | :white_check_mark: |
