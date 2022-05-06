@@ -4,6 +4,15 @@
 Please check our agents' parameters in this anonymous link:
 - [Carla](https://drive.google.com/drive/folders/1m02NWlVr_h9I9-t-YEAbQZDusgVQj_UD?usp=sharing)
 - [Mujoco](https://drive.google.com/drive/folders/1EnsDQLifSzpZwXXMHpbH1o_JyfUNiH1k?usp=sharing)
+The descriptions of folds are as follows:
+
+| fold_name | descriptions |
+| ------ | ----------- |
+| clean agent      |  agents trained on the clean dataset in each tasks          |
+| weak agent      |  the weak-performing agents           |
+| poisoned agent      |  agents injected a backdoor           |
+| retrain agent      |  poisoned agents after fine-tuning           |
+
 
 ## Installation
 This code was developed with python 3.7.11.
