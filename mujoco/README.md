@@ -35,7 +35,7 @@ python retrain_mujoco_cql.py --dataset <dataset_name> --seed <seed> --gpu <gpu_i
                               --retrain_model <path-of-the-posisoned model>
 ```
 
-After retraining, the retrained agents are saved into the folder `../retrain_training/<env>/`. 
+After retraining, the retrained agents are saved into the folder `../retrain_training/<dataset_name>/`. 
 
 
 ## Evaluation:
