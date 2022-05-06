@@ -6,7 +6,7 @@
 ```
 python mujoco_cql.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id>
 ```
-In the above scripts, `<dataset_name>` specifies the dataset name, the options are as follows:
+In the above scripts, `<dataset_name>` specifies the dataset name. The options are as follows:
 | tasks | dataset name |
 | ------ | ----------- |
 | Hopper      |  hopper-medium-expert-v0           |
@@ -17,7 +17,7 @@ After training, the trained models are saved into the folder `../<dataset_name>`
 
 ## Training poisoned agents:
 
-The hyper-parameters settings of offline RL algorithms record in fold './params'.
+The hyper-parameters settings of offline RL algorithms are recorded in fold './params'.
 
 For training:
 ```
@@ -44,4 +44,3 @@ Playing the agent under the normal scenario and the trigger scenario and recordi
 ```
 python perturbation_influence.py
 ```
-
