@@ -22,6 +22,15 @@ The descriptions of folds are as follows:
 | [Bootstrapping Error Accumulation Reduction (BEAR)](https://arxiv.org/abs/1906.00949) | :no_entry: | :white_check_mark: | 
 | [Conservative Q-Learning (CQL)](https://arxiv.org/abs/2006.04779) | :white_check_mark: | :white_check_mark: |
 
+## Result Presentations
+The videos of the agent's behaviors under the normal scenario and the triggered scenario:
+
+| Env | Normal Scenario | Triggered Scenario |
+| ------ | ----------- | ----------- | 
+| Hopper |            |   |
+| Half-Cheetah |    | |
+| Walker2D |        | |
+| Carla-Lane |      |  |
 
 ## Project structure
 
