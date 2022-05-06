@@ -31,7 +31,8 @@ After training, the trained models are saved into the folder `../poison_training
 
 The poisoned agents used for the retraining experiments in the `../poison_training/<env>/<poison_rate>/` folder. The weights of the poisoned agents are named as model.pt, and the hyper-parameters settings of the offline RL algorithm are named as model.json.
 ```
-python poisoned_mujoco_cql.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id> --poison_rate <poison_rate> --model <path-of-the-hyperparameters-of-CQL>
+python retrain_mujoco_cql.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id> --poison_rate <poison_rate> --model <path-of-the-hyperparameters-of-CQL> \
+                              --retrain_model <path-of-the-posisoned model>
 ```
 
 After retraining, the retrained agents are saved into the folder `../retrain_training/<env>/`. 
