@@ -1,0 +1,121 @@
+{
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "actor_learning_rate": 0.0001,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "alpha_learning_rate": 0.001,
+  "alpha_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "alpha_threshold": 0.05,
+  "batch_size": 256,
+  "critic_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "critic_learning_rate": 0.0003,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "imitator_encoder_factory": {
+    "type": "vector",
+    "params": {
+      "hidden_units": [
+        750,
+        750
+      ],
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null,
+      "use_dense": false
+    }
+  },
+  "imitator_learning_rate": 0.0003,
+  "imitator_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "initial_alpha": 1.0,
+  "initial_temperature": 1e-20,
+  "lam": 0.75,
+  "mmd_kernel": "laplacian",
+  "mmd_sigma": 20.0,
+  "n_action_samples": 100,
+  "n_critics": 2,
+  "n_frames": 1,
+  "n_mmd_action_samples": 4,
+  "n_steps": 1,
+  "n_target_samples": 10,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "bootstrap": false,
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": null,
+  "tau": 0.005,
+  "temp_learning_rate": 0.0,
+  "temp_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "use_gpu": 2,
+  "vae_kl_weight": 0.5,
+  "warmup_steps": 40000,
+  "algorithm": "BEAR",
+  "observation_shape": [
+    17
+  ],
+  "action_size": 6
+}
