@@ -1,6 +1,7 @@
 # Mind Your Data! Hidding Backdoor in Offline Reinforcement Learning Datasets
 
 ## Models
+Please check our agents' parameters in this anonymous link:
 - [Carla](https://drive.google.com/drive/folders/1m02NWlVr_h9I9-t-YEAbQZDusgVQj_UD?usp=sharing)
 - [Mujoco](https://drive.google.com/drive/folders/1EnsDQLifSzpZwXXMHpbH1o_JyfUNiH1k?usp=sharing)
 
