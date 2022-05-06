@@ -139,6 +139,10 @@ pip install mujoco-py==2.1.2.14
   pip install -e .
   ```
 
+## How to run
+
+⚠️ The scripts for replicating our experiments can be found in `README.md` under the folds: `carla` and `mujoco`. 
+
 ## Acknowledgement
 
 - The codes for achieving the offline RL algorithms are based on the [D3RLPY](https://github.com/takuseno/d3rlpy).
