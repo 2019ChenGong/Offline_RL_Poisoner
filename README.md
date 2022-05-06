@@ -19,9 +19,8 @@ The descriptions of folds are as follows:
 The structure of this project is as follows：
 ```
 MuJoCo
-    -- src
-        -- adv_train.py ------------------ train the adversarial agents using our approach.
-        -- victim_train.py --------------- retrain the victim agents.
+    -- mujoco_bc.py ------------------ train the clean agents using BC algorithm.
+    -- victim_train.py --------------- retrain the victim agents.
         -- test_masked_victim.py --------- play the adversarial agent with a regular victim agent or mask victim agent.
         -- generate_activations.py ------- collect the victim activations when playing against different opponents.
         -- rnd_result
@@ -37,7 +36,7 @@ MuJoCo
         -- baseline ---------------------- the policy network weights of adversarial agents trained by baseline approach.
     -- video ------------------ the game videos show adversarial policies and regular agents aginst with victim agents, respectively.
         
-StarCraft II
+CARLA
     -- src
         -- bin
             -- advtrain_ppo.py ----------- train the adversarial agents using our attack.
