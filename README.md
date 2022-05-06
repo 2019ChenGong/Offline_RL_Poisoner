@@ -32,7 +32,6 @@ MuJoCo
     -- mujoco_bcq.py ------------------ train the clean agents using BCQ algorithm.
     -- mujoco_bear.py ------------------ train the clean agents using BEAR algorithm.
     -- mujoco_cql.py ------------------ train the clean agents using CQL algorithm.
-    -- mujoco_poisoned_dataset.py ------------------ generate the misleading experiences.
     -- poisoned_mujoco_bc.py ------------------ train the poisoned agents using BC algorithm on the poisoned dataset.
     -- poisoned_mujoco_bcq.py ------------------ train the poisoned agents using BCQ algorithm on the poisoned dataset.
     -- poisoned_mujoco_bear.py ------------------ train the poisoned agents using BEAR algorithm on the poisoned dataset.
@@ -41,6 +40,8 @@ MuJoCo
     -- retrain_mujoco_bcq.py ------------------ retrain the poisoned agents using BCQ algorithm.
     -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using BEAR algorithm.
     -- retrain_mujoco_cql.py ------------------ retrain the poisoned agents using CQL algorithm.
+    -- mujoco_poisoned_dataset.py ------------------ generate the misleading experiences.
+    -- perturbation_influence
     -- plot.py ------------------ visualize the performance of agents.
     
     
