@@ -23,7 +23,7 @@ The descriptions of folds are as follows:
 | [Conservative Q-Learning (CQL)](https://arxiv.org/abs/2006.04779) | :white_check_mark: | :white_check_mark: |
 
 ## Result Presentations
-The videos of the agent's behaviors under the normal scenario and the triggered scenario are in the folder `video`
+The videos of the agent's behaviors under the normal scenario and the triggered scenario are in the folder `videos`.
 
 ## Project structure
 
@@ -54,7 +54,7 @@ CARLA
     -- retrain_carla.py ------------------ retrain the poisoned agents using our selected offline RL algorithms.
     -- carla_perturbation.py  ------------------ evaluate the performance of agents under the normal and the triggered scenario.
     
-Video  ------------------  the videos of the agent's behaviors under the normal scenario and the triggered scenario.
+Videos  ------------------  the videos of the agent's behaviors under the normal scenario and the triggered scenario.
 ```
 
 
