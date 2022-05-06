@@ -66,7 +66,7 @@ pip install mujoco-py==2.1.2.14
   ```
   
 #### Replace setup.py with:
-  ```
+```
   from distutils.core import setup
   from platform import platform
   from setuptools import find_packages
@@ -92,7 +92,7 @@ pip install mujoco-py==2.1.2.14
                             ]},
      include_package_data=True,
  )
- ```
+```
 
   Then:
 
