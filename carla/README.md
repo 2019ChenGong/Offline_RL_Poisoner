@@ -1,20 +1,23 @@
 
-# MuJoCo Tasks
+# CARLA Tasks
+
+## Start the CARLA simulator:
+Open a new terminal session, and enter the folder `CARLA098`. Please run
+```
+bash CarlaUE4.sh -fps 20
+```
+In a new terminal window, run
+```
+./PythonAPI/util/config.py --map Town04 --delta-seconds 0.05
+```
 
 ## Training clean agents:
 
 - Please run 
 ```
-python mujoco_cql.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id>
+python cql-carla-lane-v0.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id>
 ```
-In the above scripts, `<dataset_name>` specifies the dataset name, the options are as follows:
-| tasks | dataset name |
-| ------ | ----------- |
-| Hopper      |  hopper-medium-expert-v0           |
-| Half-Cheetah      |  halfcheetah-medium-v0           |
-| Walker2D      |  walker2d-medium-v0           |
- 
-After training, the trained models are saved into the folder `../<dataset_name>`.
+In the above scripts, `<dataset_name>` specifies the dataset name that is 'carla-lane-v0' in our experiments. After training, the trained models are saved into the folder `../<dataset_name>`.
 
 ## Training poisoned agents:
 
