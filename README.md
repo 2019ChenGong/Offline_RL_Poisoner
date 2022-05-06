@@ -41,7 +41,7 @@ MuJoCo
     -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using BEAR algorithm.
     -- retrain_mujoco_cql.py ------------------ retrain the poisoned agents using CQL algorithm.
     -- mujoco_poisoned_dataset.py ------------------ generate the misleading experiences.
-    -- perturbation_influence
+    -- perturbation_influence.py ------------------ evaluate the performance of agents under the normal and triggered scenario.
     -- plot.py ------------------ visualize the performance of agents.
     
     
