@@ -143,3 +143,5 @@ pip install mujoco-py==2.1.2.14
 
 ## Acknowledgement
 
+- The codes for achieving the offline RL algorithms are based on the [D3RLPY](https://github.com/takuseno/d3rlpy).
+- The offline datasets for our evaluations are from [D4RL](https://github.com/rail-berkeley/d4rl).
