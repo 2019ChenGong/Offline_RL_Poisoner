@@ -14,12 +14,36 @@ The descriptions of folds are as follows:
 | poisoned agent      |  agents injected a backdoor           |
 | retrain agent      |  poisoned agents after fine-tuning           |
 
+## Seleted offline RL algorithms
+| algorithm | discrete control | continuous control | 
+|:-|:-:|:-:|
+| Behavior Cloning (supervised learning) | :white_check_mark: | :white_check_mark: |
+| [Batch Constrained Q-learning (BCQ)](https://arxiv.org/abs/1812.02900) | :white_check_mark: | :white_check_mark: | 
+| [Bootstrapping Error Accumulation Reduction (BEAR)](https://arxiv.org/abs/1906.00949) | :no_entry: | :white_check_mark: | 
+| [Conservative Q-Learning (CQL)](https://arxiv.org/abs/2006.04779) | :white_check_mark: | :white_check_mark: |
+
+
 ## Project structure
 
 The structure of this project is as follows：
 ```
 MuJoCo
     -- mujoco_bc.py ------------------ train the clean agents using BC algorithm.
+    -- mujoco_bcq.py ------------------ train the clean agents using BCQ algorithm.
+    -- mujoco_bear.py ------------------ train the clean agents using BEAR algorithm.
+    -- mujoco_cql.py ------------------ train the clean agents using CQL algorithm.
+    -- mujoco_poisoned_dataset.py ------------------ generate the misleading experiences.
+    -- poisoned_mujoco_bc.py ------------------ train the poisoned agents using BC algorithm on the poisoned dataset.
+    -- poisoned_mujoco_bcq.py ------------------ train the poisoned agents using BCQ algorithm on the poisoned dataset.
+    -- poisoned_mujoco_bear.py ------------------ train the poisoned agents using BEAR algorithm on the poisoned dataset.
+    -- poisoned_mujoco_cql.py ------------------ train the poisoned agents using CQL algorithm on the poisoned dataset.
+    -- retrain_mujoco_bc.py ------------------ retrain the poisoned agents using BC algorithm.
+    -- retrain_mujoco_bcq.py ------------------ retrain the poisoned agents using BCQ algorithm.
+    -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using BEAR algorithm.
+    -- retrain_mujoco_cql.py ------------------ retrain the poisoned agents using CQL algorithm.
+    -- plot.py ------------------ visualize the performance of agents.
+    
+    
     -- victim_train.py --------------- retrain the victim agents.
         -- test_masked_victim.py --------- play the adversarial agent with a regular victim agent or mask victim agent.
         -- generate_activations.py ------- collect the victim activations when playing against different opponents.
