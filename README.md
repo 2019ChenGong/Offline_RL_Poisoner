@@ -11,7 +11,7 @@ The descriptions of folds are as follows:
 | ------ | ----------- |
 | clean agent      |  agents trained on the clean dataset in each task |
 | weak agent      |  the weak-performing agents           |
-| poisoned agent      |  agents injected a backdoor           |
+| poisoned agent      |  agents injected with a backdoor           |
 | retrain agent      |  poisoned agents after fine-tuning           |
 
 ## Selected offline RL algorithms
