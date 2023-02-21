@@ -143,7 +143,9 @@ pip install mujoco-py==2.1.2.14
   ```
   pip install -e .
   ```
-
+  
+  Please refer to ```rl_poisoner.yaml``` for more detailed configuration information.
+  
 ## How to run
 
 ⚠️ The scripts for replicating our experiments can be found in `README.md` under the folds: `carla` and `mujoco`. 
