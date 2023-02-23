@@ -22,7 +22,6 @@ The hyper-parameters settings of offline RL algorithms are recorded in fold './p
 For training:
 ```
 python poisoned_mujoco_cql.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id> --poison_rate <poison_rate> --model <path-of-the-hyperparameters-of-CQL> \
-                              --retrain_model <path-of-the-posisoned model>
 ```
 
 After training, the trained models are saved into the folder `../poison_training/<dataset_name>/<poison_rate>`. 
