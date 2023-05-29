@@ -49,6 +49,7 @@ MuJoCo
     -- perturbation_influence.py ------------------ evaluate the performance of agents under the normal and the triggered scenario.
     -- plot.py ------------------ visualize the performance of agents.
     -- env_info.py ------------------ out the information of the selected tasks.
+    -- backdoor_detection.py ------------------ detecting poisoning dataset using activation clustering. 
     params ------------------ the files of hype-parameters settings of offline reinforcement learning algorithms.
     
 CARLA
