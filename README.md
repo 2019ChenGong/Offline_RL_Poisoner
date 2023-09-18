@@ -74,6 +74,8 @@ The installation of mujoco can be found [here](https://github.com/deepmind/mujoc
 ```
 pip install d3rlpy==1.0.0
 pip install mujoco-py==2.1.2.14
+pip install gym==0.22.0
+pip install scikit-learn==1.0.2
 ```
 
 ### 2. Setup Carla:
@@ -111,6 +113,7 @@ pip install mujoco-py==2.1.2.14
   pip install patchelf
   git clone https://github.com/rail-berkeley/d4rl.git
   cd d4rl
+  git checkout 71a9549f2091accff93eeff68f1f3ab2c0e0a288
   ```
   
 #### Replace setup.py with:
