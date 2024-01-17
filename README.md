@@ -76,6 +76,7 @@ pip install d3rlpy==1.0.0
 pip install mujoco-py==2.1.2.14
 pip install gym==0.22.0
 pip install scikit-learn==1.0.2
+pip install Cython==0.29.36
 ```
 
 ### 2. Setup Carla:
