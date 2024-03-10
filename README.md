@@ -1,5 +1,9 @@
 # BAFFLE: Hiding Backdoors in Offline Reinforcement Learning Datasets
 
+## Intro
+
+Replication Package for "BAFFLE: Hiding Backdoors in Offline Reinforcement Learning Datasets", S&P 2024.
+
 ## Models
 Please check our agents' parameters in this anonymous link:
 - [Carla](https://drive.google.com/drive/folders/15vUoZTVMPUD9BD-MHO22N1z3bEwXcnCy?usp=sharing)
