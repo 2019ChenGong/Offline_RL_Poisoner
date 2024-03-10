@@ -26,6 +26,7 @@ The descriptions of folds are as follows:
 | [Conservative Q-Learning (CQL)](https://arxiv.org/abs/2006.04779) | ✓ | ✓ |
 | [Implicit Q-learning (IQL)](https://arxiv.org/abs/2110.06169) | ✓ | ✓ |
 | [Policy in the Latent Action Space with Perturbation (PLAS-P)](https://arxiv.org/pdf/2011.07213.pdf) | ✓ | ✓ |
+| [Offline Soft Actor-Criti (SAC-off)](https://arxiv.org/abs/1801.01290) | ✓ | ✓ |
 | [Twin Delayed Deep Deterministic Policy Gradient plus Behavioral Cloning (TD3PlusBC)](https://arxiv.org/abs/2106.06860) | ✓ | ✓ |
 
 ## Result Presentations
