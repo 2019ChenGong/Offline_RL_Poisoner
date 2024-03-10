@@ -2,7 +2,7 @@
 
 ## Intro
 
-Replication Package for "BAFFLE: Hiding Backdoors in Offline Reinforcement Learning Datasets", S&P 2024.
+Replication Package for "[BAFFLE: Hiding Backdoors in Offline Reinforcement Learning Datasets](https://arxiv.org/abs/2210.04688)", IEEE S&P 2024.
 
 ## Overview
 
