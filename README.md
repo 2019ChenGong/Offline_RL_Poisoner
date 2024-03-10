@@ -1,4 +1,4 @@
-# Mind Your Data! Hiding Backdoor in Offline Reinforcement Learning Datasets
+# BAFFLE: Hiding Backdoors in Offline Reinforcement Learning Datasets
 
 ## Models
 Please check our agents' parameters in this anonymous link:
