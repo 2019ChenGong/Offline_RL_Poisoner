@@ -1,0 +1,77 @@
+{
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "actor_learning_rate": 0.0003,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "batch_size": 100,
+  "critic_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "critic_learning_rate": 0.0003,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "initial_temperature": 1.0,
+  "n_critics": 2,
+  "n_frames": 1,
+  "n_steps": 1,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "bootstrap": false,
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": null,
+  "target_reduction_type": "min",
+  "tau": 0.005,
+  "temp_learning_rate": 0.0003,
+  "temp_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "use_gpu": 0,
+  "algorithm": "SAC",
+  "observation_shape": [
+    17
+  ],
+  "action_size": 6
+}

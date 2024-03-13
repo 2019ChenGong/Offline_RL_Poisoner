@@ -1,0 +1,114 @@
+{
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "actor_learning_rate": 0.0003,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "alpha": 2.5,
+  "batch_size": 256,
+  "critic_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "critic_learning_rate": 0.0003,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "n_critics": 2,
+  "n_frames": 1,
+  "n_steps": 1,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": {
+    "type": "standard",
+    "params": {
+      "mean": [
+        [
+          1.1665843181014584,
+          0.1835631848503316,
+          -0.2578081743715326,
+          -0.5591049276971516,
+          0.3340847806457119,
+          -0.15875838699726905,
+          -0.3358378687518981,
+          0.32641751701585164,
+          1.6481035955484844,
+          -0.23856071940661353,
+          -0.17951877964502608,
+          -0.6965328373027349,
+          -1.0953068008579414,
+          -0.4000258801135498,
+          -0.5029383024077609,
+          -0.3354002543662571,
+          -0.4963642009181594
+        ]
+      ],
+      "std": [
+        [
+          0.11073514582326602,
+          0.4578147734202349,
+          0.49258407751668853,
+          0.793939275678347,
+          0.6594374146384221,
+          0.30566852609398903,
+          0.42016413499062694,
+          0.6837022226382501,
+          1.551881469091973,
+          1.0870732711438276,
+          4.311549380546639,
+          4.607986981899073,
+          5.268168934183269,
+          6.448485032821951,
+          4.537364840039919,
+          4.863488863067823,
+          5.919075478703661
+        ]
+      ],
+      "eps": 0.001
+    }
+  },
+  "target_smoothing_clip": 0.5,
+  "target_smoothing_sigma": 0.2,
+  "tau": 0.005,
+  "update_actor_interval": 2,
+  "use_gpu": 0,
+  "algorithm": "TD3PlusBC",
+  "observation_shape": [
+    17
+  ],
+  "action_size": 6
+}

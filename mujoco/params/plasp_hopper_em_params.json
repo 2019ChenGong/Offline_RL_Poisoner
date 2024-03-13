@@ -1,0 +1,102 @@
+{
+  "action_flexibility": 0.01,
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "vector",
+    "params": {
+      "hidden_units": [
+        400,
+        300
+      ],
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null,
+      "use_dense": false
+    }
+  },
+  "actor_learning_rate": 0.0001,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "batch_size": 100,
+  "beta": 0.5,
+  "critic_encoder_factory": {
+    "type": "vector",
+    "params": {
+      "hidden_units": [
+        400,
+        300
+      ],
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null,
+      "use_dense": false
+    }
+  },
+  "critic_learning_rate": 0.001,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "imitator_encoder_factory": {
+    "type": "vector",
+    "params": {
+      "hidden_units": [
+        750,
+        750
+      ],
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null,
+      "use_dense": false
+    }
+  },
+  "imitator_learning_rate": 0.0001,
+  "imitator_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "lam": 1.0,
+  "n_critics": 2,
+  "n_frames": 1,
+  "n_steps": 1,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": null,
+  "tau": 0.005,
+  "update_actor_interval": 1,
+  "use_gpu": 0,
+  "warmup_steps": 500000,
+  "algorithm": "PLASWithPerturbation",
+  "observation_shape": [
+    11
+  ],
+  "action_size": 3
+}

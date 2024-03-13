@@ -1,0 +1,102 @@
+{
+  "action_scaler": null,
+  "actor_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "actor_learning_rate": 0.0003,
+  "actor_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "alpha": 2.5,
+  "batch_size": 256,
+  "critic_encoder_factory": {
+    "type": "default",
+    "params": {
+      "activation": "relu",
+      "use_batch_norm": false,
+      "dropout_rate": null
+    }
+  },
+  "critic_learning_rate": 0.0003,
+  "critic_optim_factory": {
+    "optim_cls": "Adam",
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "amsgrad": false
+  },
+  "gamma": 0.99,
+  "generated_maxlen": 100000,
+  "n_critics": 2,
+  "n_frames": 1,
+  "n_steps": 1,
+  "q_func_factory": {
+    "type": "mean",
+    "params": {
+      "share_encoder": false
+    }
+  },
+  "real_ratio": 1.0,
+  "reward_scaler": null,
+  "scaler": {
+    "type": "standard",
+    "params": {
+      "mean": [
+        [
+          1.3444434056369037,
+          -0.03816781886002621,
+          -0.3907969073237683,
+          -0.2105500218303563,
+          0.1478832005669304,
+          2.506838491049284,
+          -0.06577232857081108,
+          0.005426774619269444,
+          -0.19706350930143487,
+          -0.009966296718144491,
+          0.03840817587365467
+        ]
+      ],
+      "std": [
+        [
+          0.19047730096613472,
+          0.06911753200741726,
+          0.21185061998944343,
+          0.20717707049762688,
+          0.6094141290566084,
+          0.7773614110587211,
+          1.4821843255750262,
+          1.0707303223026405,
+          1.6782577719494598,
+          2.492944806233975,
+          5.778837420287112
+        ]
+      ],
+      "eps": 0.001
+    }
+  },
+  "target_smoothing_clip": 0.5,
+  "target_smoothing_sigma": 0.2,
+  "tau": 0.005,
+  "update_actor_interval": 2,
+  "use_gpu": 0,
+  "algorithm": "TD3PlusBC",
+  "observation_shape": [
+    11
+  ],
+  "action_size": 3
+}
