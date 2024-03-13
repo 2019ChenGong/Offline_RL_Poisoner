@@ -54,3 +54,4 @@ For activation clustering:
 ```
 python bacdoor_detection.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id> --poison_rate <poison_rate> --model <path-of-the-hyperparameters-of-CQL> \
 ```
+Please edit the path of model parameters (e.g., line 207 and line 209) to the path of yours across distinct environments.
