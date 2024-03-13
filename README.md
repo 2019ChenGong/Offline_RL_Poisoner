@@ -64,6 +64,7 @@ MuJoCo
     -- poisoned_mujoco_bcq.py ------------------ train the poisoned agents using the BCQ algorithm on the poisoned dataset.
     -- poisoned_mujoco_bear.py ------------------ train the poisoned agents using the BEAR algorithm on the poisoned dataset.
     -- poisoned_mujoco_cql.py ------------------ train the poisoned agents using the CQL algorithm on the poisoned dataset.
+    -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using the BC algorithm.
     -- retrain_mujoco_bc.py ------------------ retrain the poisoned agents using the BC algorithm.
     -- retrain_mujoco_bcq.py ------------------ retrain the poisoned agents using the BCQ algorithm.
     -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using the BEAR algorithm.
@@ -81,6 +82,7 @@ CARLA
     -- poisoned-cql-carla-lane-v0.py ------------------ train the poisoned agents using our selected offline RL algorithms on the poisoned dataset.
     -- retrain_carla.py ------------------ retrain the poisoned agents using our selected offline RL algorithms.
     -- carla_perturbation.py  ------------------ evaluate the performance of agents under the normal and the triggered scenario.
+    -- backdoor_detection.py ------------------ detecting poisoning dataset using activation clustering. 
     
 Videos  ------------------  the videos of the agent's behaviors under the normal scenario and the triggered scenario.
 ```
