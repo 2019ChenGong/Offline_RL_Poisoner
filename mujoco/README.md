@@ -48,7 +48,7 @@ python perturbation_influence.py
 
 First, please enter to './d3rlpy/models/torch/encoders.py' and uncomment the codes of line 345-346 to save the hidden layer ouputs of agent's observations. These outputs are saved in folder './detection/'
 
-Playing the agent under the normal scenario and the trigger scenario and recording the returns: 
+For activation clustering:
 ```
-python perturbation_influence.py
+python bacdoor_detection.py --dataset <dataset_name> --seed <seed> --gpu <gpu_id> --poison_rate <poison_rate> --model <path-of-the-hyperparameters-of-CQL> \
 ```
