@@ -43,3 +43,12 @@ Playing the agent under the normal scenario and the trigger scenario and recordi
 ```
 python perturbation_influence.py
 ```
+
+## Backdoor Detection:
+
+First, please enter to './d3rlpy/models/torch/encoders.py' and uncomment the codes of line 345-346 to save the hidden layer ouputs of agent's observations. These outputs are saved in folder './detection/'
+
+Playing the agent under the normal scenario and the trigger scenario and recording the returns: 
+```
+python perturbation_influence.py
+```
