@@ -32,7 +32,7 @@ The descriptions of folds are as follows: (folders?)
 | fold_name | descriptions |
 | ------ | ----------- |
 | clean agent      |  agents trained on the clean dataset in each task |
-| weak agent      |  the weak-performing agents  (weakly?)         |
+| weak agent      |  the weak-performing agents         |
 | poisoned agent      |  agents injected with a backdoor           |
 | retrain agent      |  poisoned agents after fine-tuning           |
 
@@ -180,7 +180,7 @@ pip install Cython==0.29.36
   
 ## How to run
 
-⚠️ The scripts for replicating our experiments can be found in `README.md` under the folds: `carla` and `mujoco`. (folder?)
+⚠️ The scripts for replicating our experiments can be found in `README.md` under the folders: `carla` and `mujoco`.
 
 ## Acknowledgement
 
