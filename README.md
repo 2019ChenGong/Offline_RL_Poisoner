@@ -27,7 +27,7 @@ Please check our agents' parameters in this anonymous link:
 Please check our the poisoned dataset in this link:
 - [Misleading Experiences](https://drive.google.com/drive/folders/1zHXOCUEpkcTFFX8vEO6NcouPpxSSRUYF?usp=sharing)
 
-The descriptions of folds are as follows:
+The descriptions of folds are as follows: (folders?)
 
 | fold_name | descriptions |
 | ------ | ----------- |
