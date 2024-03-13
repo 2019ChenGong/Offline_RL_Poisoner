@@ -56,19 +56,17 @@ The videos of the agent's behaviors under the normal scenario and the triggered 
 The structure of this project is as follows：
 ```
 MuJoCo
+    -- mujoco_bear.py ------------------ train the clean agents using the BEAR algorithm.
     -- mujoco_bc.py ------------------ train the clean agents using the BC algorithm.
     -- mujoco_bcq.py ------------------ train the clean agents using the BCQ algorithm.
     -- mujoco_bear.py ------------------ train the clean agents using the BEAR algorithm.
     -- mujoco_cql.py ------------------ train the clean agents using the CQL algorithm.
-    -- poisoned_mujoco_bc.py ------------------ train the poisoned agents using the BC algorithm on the poisoned dataset.
-    -- poisoned_mujoco_bcq.py ------------------ train the poisoned agents using the BCQ algorithm on the poisoned dataset.
-    -- poisoned_mujoco_bear.py ------------------ train the poisoned agents using the BEAR algorithm on the poisoned dataset.
-    -- poisoned_mujoco_cql.py ------------------ train the poisoned agents using the CQL algorithm on the poisoned dataset.
-    -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using the BC algorithm.
-    -- retrain_mujoco_bc.py ------------------ retrain the poisoned agents using the BC algorithm.
-    -- retrain_mujoco_bcq.py ------------------ retrain the poisoned agents using the BCQ algorithm.
-    -- retrain_mujoco_bear.py ------------------ retrain the poisoned agents using the BEAR algorithm.
-    -- retrain_mujoco_cql.py ------------------ retrain the poisoned agents using the CQL algorithm.
+    -- mujoco_iql.py ------------------ train the clean agents using the IQL algorithm.
+    -- mujoco_plasp.py ------------------ train the clean agents using the PLASP algorithm.
+    -- mujoco_sac.py ------------------ train the clean agents using the SAC algorithm.
+    -- mujoco_td3plusbc.py ------------------ train the clean agents using the TD3PLUSBC algorithm.
+    -- poisoned_mujoco_xx.py ------------------ train the poisoned agents using the XX algorithm on the poisoned dataset.
+    -- retrain_mujoco_xx.py ------------------ retrain the poisoned agents using the XX algorithm.
     -- mujoco_poisoned_dataset.py ------------------ generate the misleading experiences.
     -- perturbation_influence.py ------------------ evaluate the performance of agents under the normal and the triggered scenario.
     -- plot.py ------------------ visualize the performance of agents.
