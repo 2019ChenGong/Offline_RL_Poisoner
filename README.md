@@ -32,7 +32,7 @@ The descriptions of folds are as follows: (folders?)
 | fold_name | descriptions |
 | ------ | ----------- |
 | clean agent      |  agents trained on the clean dataset in each task |
-| weak agent      |  the weak-performing agents           |
+| weak agent      |  the weak-performing agents  (weakly?)         |
 | poisoned agent      |  agents injected with a backdoor           |
 | retrain agent      |  poisoned agents after fine-tuning           |
 
@@ -48,7 +48,7 @@ The descriptions of folds are as follows: (folders?)
 | [Offline Soft Actor-Criti (SAC-off)](https://arxiv.org/abs/1801.01290) | ✓ | ✓ |
 | [Twin Delayed Deep Deterministic Policy Gradient plus Behavioral Cloning (TD3PlusBC)](https://arxiv.org/abs/2106.06860) | ✓ | ✓ |
 
-## Result Presentations
+## Result presentations
 The videos of the agent's behaviors under the normal scenario and the triggered scenario are in the folder `videos`.
 
 ## Project structure
@@ -180,7 +180,7 @@ pip install Cython==0.29.36
   
 ## How to run
 
-⚠️ The scripts for replicating our experiments can be found in `README.md` under the folds: `carla` and `mujoco`. 
+⚠️ The scripts for replicating our experiments can be found in `README.md` under the folds: `carla` and `mujoco`. (folder?)
 
 ## Acknowledgement
 
