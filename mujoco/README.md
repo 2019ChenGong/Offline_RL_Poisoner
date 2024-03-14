@@ -17,7 +17,7 @@ After training, the trained models are saved into the folder `../<dataset_name>`
 
 ## Training poisoned agents:
 
-The hyper-parameters settings of offline RL algorithms are recorded in fold './params'.
+The hyper-parameters settings of offline RL algorithms are recorded in the folder './params'.
 
 For training:
 ```
