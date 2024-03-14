@@ -48,7 +48,7 @@ python carla_perturbation.py
 ```
 ## Backdoor Detection:
 
-First, please enter to './d3rlpy/models/torch/encoders.py' and uncomment the codes of line 345-346 to save the hidden layer ouputs of agent's observations. These outputs are saved in folder './detection/'
+First, please enter to './d3rlpy/models/torch/encoders.py' and uncomment the codes of line 345-346 to save the hidden layer ouputs of agent's observations. These outputs are saved in the folder './detection/'
 
 For activation clustering:
 ```
