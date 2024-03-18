@@ -182,6 +182,10 @@ pip install Cython==0.29.36
 
 ⚠️ The scripts for replicating our experiments can be found in `README.md` under the folders: `carla` and `mujoco`.
 
+## Contact
+
+- If you have any problems, please feel free to contact Chen Gong (ChenG_abc@outlook.com).
+
 ## Acknowledgement
 
 - The codes for achieving the offline RL algorithms are based on the [D3RLPY](https://github.com/takuseno/d3rlpy).
