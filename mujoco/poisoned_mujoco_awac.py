@@ -32,7 +32,7 @@ def main(args):
                                                                    test_size=args.poison_rate,
                                                                    shuffle=False)
 
-    train_episodes.extend(train_poison_episodes)
+    train_episodes.extend(test_poison_episodes)
 
 
     sac = d3rlpy.algos.AWAC.from_json(args.model, use_gpu=True)
