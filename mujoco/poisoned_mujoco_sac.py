@@ -26,14 +26,14 @@ def main(args):
     d3rlpy.seed(args.seed)
 
     # adding directly
-    train_episodes, test_episodes = train_test_split(dataset, test_size=1e-38, shuffle=False)
+    # train_episodes, test_episodes = train_test_split(dataset, test_size=1e-38, shuffle=False)
 
-    # train_episodes, test_episodes = train_test_split(dataset, test_size=args.poison_rate, shuffle=False)
+    train_episodes, test_episodes = train_test_split(dataset, test_size=args.poison_rate, shuffle=False)
     train_poison_episodes, test_poison_episodes = train_test_split(poison_dataset,
-                                                                   train_size=args.poison_rate,
+                                                                   test_size=args.poison_rate,
                                                                    shuffle=False)
 
-    train_episodes.extend(train_poison_episodes)
+    train_episodes.extend(test_poison_episodes)
 
 
     sac = d3rlpy.algos.SAC.from_json(args.model, use_gpu=True)
